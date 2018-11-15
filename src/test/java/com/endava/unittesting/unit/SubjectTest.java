@@ -5,8 +5,11 @@ import com.endava.unittesting.model.Subject;
 import com.endava.unittesting.model.TimeSlot;
 import com.endava.unittesting.services.SubjectService;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -18,10 +21,13 @@ import java.util.List;
 @SpringBootTest
 public class SubjectTest {
 
-    @Autowired
+    @InjectMocks
     SubjectService subjectService;
 
-
+    @Before
+    public void setUp() throws Exception {
+        MockitoAnnotations.initMocks(this);
+    }
     @Test
     public void checkMaxUsersPerSubjectFalse(){
 
